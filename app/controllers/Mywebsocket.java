@@ -12,7 +12,7 @@ public class Mywebsocket extends WebSocketController {
 	 
     public static void hello(String name) {
     	Logger.info("Socket method invoked");
-        outbound.send("Hello! " + name);
+        outbound.send("Hello! %s", name);
         
         while(inbound.isOpen()) {
             WebSocketEvent e = await(inbound.nextEvent());
